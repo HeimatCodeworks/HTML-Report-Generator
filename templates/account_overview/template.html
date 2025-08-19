@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF--8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{.ClientName}} - {{.CurrentMonth}} Performance Analysis</title>
+</head>
+<body style="margin: 0; padding: 0; background-color: #f9fafb; font-family: 'Inter', sans-serif, Arial, sans-serif;">
+
+    <table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#f9fafb">
+        <tr>
+            <td align="center" style="padding: 2rem 1rem;">
+                <table width="600" border="0" cellspacing="0" cellpadding="0" style="max-width: 600px; width: 100%; background-color: #ffffff; border-radius: 1rem; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);">
+                    <tr>
+                        <td align="center" style="padding: 1.5rem 2.5rem; border-bottom: 2px solid #e5e7eb;">
+                            <h1 style="margin: 0; font-size: 1.875rem; font-weight: 700; color: #2e3f69;">{{.ClientName}}: {{.CurrentMonth}} Performance Report</h1>
+                            <p style="margin: 0.5rem 0 0; font-size: 1.125rem; color: #4b5563;">A review of MoM performance and automation-driven results.</p>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td style="padding: 2.5rem 2.5rem 2rem;">
+                            <h2 style="margin: 0 0 0.75rem; font-size: 1.5rem; font-weight: 700; color: #2e3f69;">Executive Summary</h2>
+                            <table width="100%" border="0" cellspacing="0" cellpadding="0" style="background-color: #f3f4f6; border-radius: 0.5rem;">
+                                <tr><td style="padding: 1rem;">
+                                    <p style="margin: 0; color: #1f2937; line-height: 1.5;">INSERT AI SUMMARY HERE</p>
+                                </td></tr>
+                            </table>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td style="padding: 0 2.5rem 2rem;">
+                            <h2 style="margin: 0 0 0.75rem; font-size: 1.5rem; font-weight: 700; color: #2e3f69;">Overall Account Performance ({{.PreviousMonth}} vs. {{.CurrentMonth}})</h2>
+                            <table width="100%" border="0" cellspacing="0" cellpadding="0" style="border: 1px solid #e5e7eb; border-radius: 0.5rem; font-size: 0.875rem; color: #4b5563;">
+                                <tr style="background-color: #f3f4f6; text-transform: uppercase; font-size: 0.75rem; letter-spacing: 0.05em;">
+                                    <th scope="col" style="padding: 0.75rem 1.5rem; text-align: left; color: #d86d50;">Metric</th>
+                                    <th scope="col" style="padding: 0.75rem 1.5rem; text-align: right; color: #d86d50;">{{.PreviousMonth}}</th>
+                                    <th scope="col" style="padding: 0.75rem 1.5rem; text-align: right; color: #d86d50;">{{.CurrentMonth}}</th>
+                                    <th scope="col" style="padding: 0.75rem 1.5rem; text-align: right; color: #d86d50;">Change</th>
+                                </tr>
+                                <tr style="background-color: #ffffff; border-bottom: 1px solid #e5e7eb;"><td style="padding: 1rem 1.5rem;">Total Spend</td><td style="padding: 1rem 1.5rem; text-align: right;">{{.OverallPrevious.SpendStr}}</td><td style="padding: 1rem 1.5rem; text-align: right;">{{.Overall.SpendStr}}</td><td style="padding: 1rem 1.5rem; text-align: right; font-weight: 600; color: {{.Overall.SpendColor}};">{{.Overall.SpendChangeStr}}</td></tr>
+                                <tr style="background-color: #f9fafb; border-bottom: 1px solid #e5e7eb;"><td style="padding: 1rem 1.5rem;">Installs</td><td style="padding: 1rem 1.5rem; text-align: right;">{{.OverallPrevious.InstallsStr}}</td><td style="padding: 1rem 1.5rem; text-align: right;">{{.Overall.InstallsStr}}</td><td style="padding: 1rem 1.5rem; text-align: right; font-weight: 600; color: {{.Overall.InstallsColor}};">{{.Overall.InstallsChangeStr}}</td></tr>
+                                <tr style="background-color: #ffffff;"><td style="padding: 1rem 1.5rem; font-weight: 700;">Avg CPA</td><td style="padding: 1rem 1.5rem; text-align: right; font-weight: 700;">{{.OverallPrevious.CPAStr}}</td><td style="padding: 1rem 1.5rem; text-align: right; font-weight: 700;">{{.Overall.CPAStr}}</td><td style="padding: 1rem 1.5rem; text-align: right; font-weight: 700; color: {{.Overall.CPAColor}};">{{.Overall.CPAChangeStr}}</td></tr>
+                            </table>
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td style="padding: 0 2.5rem 2rem;">
+                            <h2 style="margin: 0 0 0.75rem; font-size: 1.5rem; font-weight: 700; color: #2e3f69;">Performance by App</h2>
+                            {{range .Apps}}
+                            <h3 style="margin: 0 0 0.5rem; font-size: 1.25rem; font-weight: 600; color: #1f2937;">{{.AppName}}</h3>
+                            <table width="100%" border="0" cellspacing="0" cellpadding="0" style="border: 1px solid #e5e7eb; border-radius: 0.5rem; margin-bottom: 1.5rem; font-size: 0.875rem; color: #4b5563;">
+                                <tr style="background-color: #f3f4f6; text-transform: uppercase; font-size: 0.75rem; letter-spacing: 0.05em;"><th scope="col" style="padding: 0.75rem 1.5rem; text-align: left; color: #d86d50;">Metric</th><th scope="col" style="padding: 0.75rem 1.5rem; text-align: right; color: #d86d50;">{{$.PreviousMonth}}</th><th scope="col" style="padding: 0.75rem 1.5rem; text-align: right; color: #d86d50;">{{$.CurrentMonth}}</th><th scope="col" style="padding: 0.75rem 1.5rem; text-align: right; color: #d86d50;">Change</th></tr>
+                                <tr style="background-color: #ffffff; border-bottom: 1px solid #e5e7eb;"><td style="padding: 1rem 1.5rem;">Spend</td><td style="padding: 1rem 1.5rem; text-align: right;">{{.PreviousPeriod.SpendStr}}</td><td style="padding: 1rem 1.5rem; text-align: right;">{{.CurrentPeriod.SpendStr}}</td><td style="padding: 1rem 1.5rem; text-align: right; font-weight: 600; color: {{.CurrentPeriod.SpendColor}};">{{.CurrentPeriod.SpendChangeStr}}</td></tr>
+                                <tr style="background-color: #f9fafb; border-bottom: 1px solid #e5e7eb;"><td style="padding: 1rem 1.5rem;">Installs</td><td style="padding: 1rem 1.5rem; text-align: right;">{{.PreviousPeriod.InstallsStr}}</td><td style="padding: 1rem 1.5rem; text-align: right;">{{.CurrentPeriod.InstallsStr}}</td><td style="padding: 1rem 1.5rem; text-align: right; font-weight: 600; color: {{.CurrentPeriod.InstallsColor}};">{{.CurrentPeriod.InstallsChangeStr}}</td></tr>
+                                <tr style="background-color: #ffffff;"><td style="padding: 1rem 1.5rem; font-weight: 700;">Avg CPA</td><td style="padding: 1rem 1.5rem; text-align: right; font-weight: 700;">{{.PreviousPeriod.CPAStr}}</td><td style="padding: 1rem 1.5rem; text-align: right; font-weight: 700;">{{.CurrentPeriod.CPAStr}}</td><td style="padding: 1rem 1.5rem; text-align: right; font-weight: 700; color: {{.CurrentPeriod.CPAColor}};">{{.CurrentPeriod.CPAChangeStr}}</td></tr>
+                            </table>
+                            {{end}}
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td style="padding: 0 2.5rem 2rem;">
+                            <h2 style="margin: 0 0 0.75rem; font-size: 1.5rem; font-weight: 700; color: #2e3f69;">Campaign-Level Deep Dive</h2>
+                            {{range .Apps}}
+                            <h3 style="margin: 0 0 0.75rem; font-size: 1.25rem; font-weight: 600; color: #1f2937;">{{.AppName}} Campaigns</h3>
+
+                            {{range .Campaigns}}
+                            <table width="100%" border="0" cellspacing="0" cellpadding="0" style="background-color: #f9fafb; border-radius: 0.75rem; border: 1px solid #e5e7eb; margin-bottom: 1rem;">
+                                <tr><td style="padding: 1rem;">
+                                    <h4 style="margin: 0 0 0.5rem; font-size: 1.125rem; font-weight: 700; color: #1f2937;">{{.CampaignName}}</h4>
+                                    <table width="100%" border="0" cellspacing="0" cellpadding="0" style="background-color: #eef2ff; border-left: 4px solid #6366f1; border-radius: 0.25rem; margin-bottom: 0.75rem;">
+                                        <tr><td style="padding: 0.75rem;">
+                                            <p style="margin: 0; color: #1f2937; line-height: 1.5;"><strong>Analysis:</strong> INSERT AI SUMMARY HERE</p>
+                                        </td></tr>
+                                    </table>
+                                    <table width="100%" border="0" cellspacing="0" cellpadding="0" style="border: 1px solid #e5e7eb; border-radius: 0.5rem; font-size: 0.875rem; color: #4b5563;">
+                                        <tr style="background-color: #f3f4f6; text-transform: uppercase; font-size: 0.75rem; letter-spacing: 0.05em;"><th scope="col" style="padding: 0.75rem 1.5rem; text-align: left; color: #d86d50;">Metric</th><th scope="col" style="padding: 0.75rem 1.5rem; text-align: right; color: #d86d50;">{{$.PreviousMonth}}</th><th scope="col" style="padding: 0.75rem 1.5rem; text-align: right; color: #d86d50;">{{$.CurrentMonth}}</th><th scope="col" style="padding: 0.75rem 1.5rem; text-align: right; color: #d86d50;">Change</th></tr>
+                                        <tr style="background-color: #ffffff; border-bottom: 1px solid #e5e7eb;"><td style="padding: 1rem 1.5rem;">Spend</td><td style="padding: 1rem 1.5rem; text-align: right;">{{.PreviousPeriod.SpendStr}}</td><td style="padding: 1rem 1.5rem; text-align: right;">{{.CurrentPeriod.SpendStr}}</td><td style="padding: 1rem 1.5rem; text-align: right; font-weight: 600; color: {{.CurrentPeriod.SpendColor}};">{{.CurrentPeriod.SpendChangeStr}}</td></tr>
+                                        <tr style="background-color: #f9fafb; border-bottom: 1px solid #e5e7eb;"><td style="padding: 1rem 1.5rem;">Installs</td><td style="padding: 1rem 1.5rem; text-align: right;">{{.PreviousPeriod.InstallsStr}}</td><td style="padding: 1rem 1.5rem; text-align: right;">{{.CurrentPeriod.InstallsStr}}</td><td style="padding: 1rem 1.5rem; text-align: right; font-weight: 600; color: {{.CurrentPeriod.InstallsColor}};">{{.CurrentPeriod.InstallsChangeStr}}</td></tr>
+                                        <tr style="background-color: #ffffff;"><td style="padding: 1rem 1.5rem; font-weight: 700;">Avg CPA</td><td style="padding: 1rem 1.5rem; text-align: right; font-weight: 700;">{{.PreviousPeriod.CPAStr}}</td><td style="padding: 1rem 1.5rem; text-align: right; font-weight: 700;">{{.CurrentPeriod.CPAStr}}</td><td style="padding: 1rem 1.5rem; text-align: right; font-weight: 700; color: {{.CurrentPeriod.CPAColor}};">{{.CurrentPeriod.CPAChangeStr}}</td></tr>
+                                    </table>
+                                </td></tr>
+                            </table>
+                            {{end}}
+                            {{end}}
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td align="center" style="padding: 2.5rem; border-top: 1px solid #e5e7eb;">
+                            <p style="margin: 0; font-size: 0.875rem; color: #6b7280;">Report generated on {{.Date}}.</p>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+
+</body>
+</html>

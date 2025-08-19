@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Apple Search Ads Performance Report for {{.CompanyName}}</title>
+</head>
+<body>
+
+<h1>Performance Report: {{.StartDate}} to {{.EndDate}}</h1>
+<h2>vs. {{.PreviousStartDate}} to {{.PreviousEndDate}}</h2>
+
+<h2>This Week's Campaign Performance</h2>
+<table border="1">
+  <tr>
+    <th>Campaign Name</th>
+    <th>Impressions</th>
+    <th>Taps</th>
+    <th>Installs</th>
+    <th>Spend</th>
+  </tr>
+  {{range .Campaigns}}
+  <tr>
+    <td>{{.CampaignName}}</td>
+    <td>{{.Impressions}}</td>
+    <td>{{.Taps}}</td>
+    <td>{{.Installs}}</td>
+    <td>${{printf "%.2f" .Spend}}</td>
+  </tr>
+  {{end}}
+</table>
+
+<h2>Previous Week's Campaign Performance</h2>
+<table border="1">
+  <tr>
+    <th>Campaign Name</th>
+    <th>Impressions</th>
+    <th>Taps</th>
+    <th>Installs</th>
+    <th>Spend</th>
+  </tr>
+  {{range .PrevCampaigns}}
+  <tr>
+    <td>{{.CampaignName}}</td>
+    <td>{{.Impressions}}</td>
+    <td>{{.Taps}}</td>
+    <td>{{.Installs}}</td>
+    <td>${{printf "%.2f" .Spend}}</td>
+  </tr>
+  {{end}}
+</table>
+
+</body>
+</html>

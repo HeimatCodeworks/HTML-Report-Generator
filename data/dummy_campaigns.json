@@ -1,0 +1,101 @@
+[
+    {
+        "TeamID": "d4270ae0-2418-4125-b124-c5ec4178ea78",
+        "date": "2025-07-15",
+        "Metadata": {
+            "campaignName": "FinanceFast - Brand US",
+            "campaignStatus": "ENABLED",
+            "displayStatus": "RUNNING",
+            "app": { "adamId": 123456789 }
+        },
+        "total": { "impressions": 10000, "taps": 800, "installs": 100, "localSpend": { "amount": 500 } }
+    },
+    {
+        "TeamID": "d4270ae0-2418-4125-b124-c5ec4178ea78",
+        "date": "2025-07-20",
+        "Metadata": {
+            "campaignName": "FinanceFast - Competitor CA",
+            "campaignStatus": "ENABLED",
+            "displayStatus": "RUNNING",
+            "app": { "adamId": 123456789 }
+        },
+        "total": { "impressions": 8000, "taps": 500, "installs": 50, "localSpend": { "amount": 350 } }
+    },
+    {
+        "TeamID": "d4270ae0-2418-4125-b124-c5ec4178ea78",
+        "date": "2025-06-15",
+        "Metadata": {
+            "campaignName": "FinanceFast - Brand US",
+            "campaignStatus": "ENABLED",
+            "displayStatus": "RUNNING",
+            "app": { "adamId": 123456789 }
+        },
+        "total": { "impressions": 9000, "taps": 700, "installs": 80, "localSpend": { "amount": 400 } }
+    },
+    {
+        "TeamID": "d4270ae0-2418-4125-b124-c5ec4178ea78",
+        "date": "2025-06-20",
+        "Metadata": {
+            "campaignName": "FinanceFast - Competitor CA",
+            "campaignStatus": "ENABLED",
+            "displayStatus": "RUNNING",
+            "app": { "adamId": 123456789 }
+        },
+        "total": { "impressions": 9500, "taps": 650, "installs": 75, "localSpend": { "amount": 420 } }
+    },
+    {
+        "TeamID": "d4270ae0-2418-4125-b124-c5ec4178ea78",
+        "date": "2025-06-22",
+        "Metadata": {
+            "campaignName": "FinanceFast - Paused Campaign",
+            "campaignStatus": "PAUSED",
+            "displayStatus": "PAUSED",
+            "app": { "adamId": 123456789 }
+        },
+        "total": { "impressions": 100, "taps": 5, "installs": 1, "localSpend": { "amount": 10 } }
+    },
+    {
+        "TeamID": "d4270ae0-2418-4125-b124-c5ec4178ea78",
+        "date": "2025-07-10",
+        "Metadata": {
+            "campaignName": "BudgetBuddy - Discovery",
+            "campaignStatus": "ENABLED",
+            "displayStatus": "RUNNING",
+            "app": { "adamId": 987654321 }
+        },
+        "total": { "impressions": 12000, "taps": 700, "installs": 65, "localSpend": { "amount": 380 } }
+    },
+    {
+        "TeamID": "d4270ae0-2418-4125-b124-c5ec4178ea78",
+        "date": "2025-07-25",
+        "Metadata": {
+            "campaignName": "BudgetBuddy - Discovery",
+            "campaignStatus": "ENABLED",
+            "displayStatus": "RUNNING",
+            "app": { "adamId": 987654321 }
+        },
+        "total": { "impressions": 13000, "taps": 800, "installs": 75, "localSpend": { "amount": 420 } }
+    },
+    {
+        "TeamID": "d4270ae0-2418-4125-b124-c5ec4178ea78",
+        "date": "2025-06-10",
+        "Metadata": {
+            "campaignName": "BudgetBuddy - Discovery",
+            "campaignStatus": "ENABLED",
+            "displayStatus": "RUNNING",
+            "app": { "adamId": 987654321 }
+        },
+        "total": { "impressions": 10000, "taps": 600, "installs": 50, "localSpend": { "amount": 300 } }
+    },
+    {
+        "TeamID": "d4270ae0-2418-4125-b124-c5ec4178ea78",
+        "date": "2025-06-25",
+        "Metadata": {
+            "campaignName": "BudgetBuddy - Discovery",
+            "campaignStatus": "ENABLED",
+            "displayStatus": "RUNNING",
+            "app": { "adamId": 987654321 }
+        },
+        "total": { "impressions": 11000, "taps": 650, "installs": 55, "localSpend": { "amount": 330 } }
+    }
+]

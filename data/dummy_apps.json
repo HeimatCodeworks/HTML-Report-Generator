@@ -1,0 +1,20 @@
+[
+  {
+    "TeamId": "d4270ae0-2418-4125-b124-c5ec4178ea78",
+    "AppName": "FinanceFast",
+    "AdamId": 123456789,
+    "IntegrationStatus": "ACTIVE"
+  },
+  {
+    "TeamId": "d4270ae0-2418-4125-b124-c5ec4178ea78",
+    "AppName": "BudgetBuddy",
+    "AdamId": 987654321,
+    "IntegrationStatus": "ACTIVE"
+  },
+  {
+    "TeamId": "d4270ae0-2418-4125-b124-c5ec4178ea78",
+    "AppName": "Legacy App",
+    "AdamId": 111222333,
+    "IntegrationStatus": "INACTIVE"
+  }
+]

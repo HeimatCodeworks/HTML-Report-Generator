@@ -13,14 +13,11 @@ const (
 )
 
 func minifyHTML(html string) string {
+	re := regexp.MustCompile(`[\s\x{00A0}]+`)
 
-	re := regexp.MustCompile(``)
-	minified := re.ReplaceAllString(html, "")
+	minified := re.ReplaceAllString(html, " ")
 
-	re = regexp.MustCompile(`\n|\t`)
-	minified = re.ReplaceAllString(minified, "")
-
-	re = regexp.MustCompile(`>\s+<`)
+	re = regexp.MustCompile(`> <`)
 	minified = re.ReplaceAllString(minified, "><")
 
 	return strings.TrimSpace(minified)

@@ -6,10 +6,9 @@ import (
 	"search-ads-reporter-ui/internal/config"
 	"search-ads-reporter-ui/internal/database"
 	"search-ads-reporter-ui/internal/email"
-	"search-ads-reporter-ui/internal/email_sender"
 	"search-ads-reporter-ui/reports"
+	"search-ads-reporter-ui/internal/sendgrid"
 	"sort"
-	"strings"
 )
 
 type App struct {
@@ -109,35 +108,21 @@ func (a *App) GenerateReport(companyID string, reportID int) (string, error) {
 	return htmlBody, nil
 }
 
-func (a *App) SendEmail(toRecipients []string, ccRecipients []string, subject string, body string) error {
+func (a *App) SendEmail(toRecipient string, subject string, body string) error {
 	cfg, err := config.LoadConfig("configs/config.json")
 	if err != nil {
 		return fmt.Errorf("could not load config to send email: %w", err)
 	}
 
-	if cfg.EmailAddress == "your-email@gmail.com" || cfg.AppPassword == "your-gmail-app-password" {
-		return fmt.Errorf("email credentials are not configured in configs/config.json")
+	if cfg.SendGridAPIKey == "YOUR_SENDGRID_API_KEY" {
+		return fmt.Errorf("sendgrid api key is not configured in configs/config.json")
 	}
 
-	to := cleanEmailList(toRecipients)
-	cc := cleanEmailList(ccRecipients)
+	// For now, we will use a hardcoded "from" address.
+	// This can be changed later to be configurable.
+	fromEmail := "reports@example.com"
 
-	if len(to) == 0 {
-		return fmt.Errorf("at least one 'To' recipient is required")
-	}
-
-	return email_sender.SendEmail(cfg.EmailAddress, cfg.AppPassword, to, cc, subject, body)
-}
-
-func cleanEmailList(emails []string) []string {
-	var cleaned []string
-	for _, email := range emails {
-		trimmed := strings.TrimSpace(email)
-		if trimmed != "" {
-			cleaned = append(cleaned, trimmed)
-		}
-	}
-	return cleaned
+	return sendgrid.SendEmail(cfg.SendGridAPIKey, fromEmail, toRecipient, subject, body)
 }
 
 func (a *App) GetUsersForCompany(teamID string) ([]string, error) {

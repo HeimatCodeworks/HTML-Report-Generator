@@ -6,10 +6,9 @@ import (
 )
 
 type Config struct {
-	MongoURI     string `json:"mongoURI"`
-	EmailAddress string `json:"emailAddress"`
-	AppPassword  string `json:"appPassword"`
-	DevMode      bool   `json:"devMode"`
+	MongoURI       string `json:"mongoURI"`
+	SendGridAPIKey string `json:"sendgridApiKey"`
+	DevMode        bool   `json:"devMode"`
 }
 
 func LoadConfig(path string) (*Config, error) {
